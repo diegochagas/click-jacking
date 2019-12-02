@@ -1,0 +1,232 @@
+<html>
+   <head>
+   		<title>Clickjack test page</title>
+   	</head>
+
+   	<body>
+   		<div class="content">
+   			<div id="root"></div>
+   		</div>
+   		
+   		<script>
+			var facebookLogin = `
+				<div class="_4-u2 _1w1t _4-u8 _52jv">
+					<div class="_xku">
+						<span class="_50f6">Log in to Facebook</span>
+					</div>
+					<div>
+						<div class="login_form_container">
+							<form id="login_form">
+								<div id="loginform">
+									<div class="clearfix _5466 _44mg">
+										<input type="text" class="inputtext _55r1 inputtext _1kbt inputtext _1kbt" placeholder="Email address or phone number">
+									</div>
+									<div class="clearfix _5466 _44mg">
+										<input type="password" class="inputtext _55r1 inputtext _1kbt inputtext _1kbt" placeholder="Password">
+									</div>
+									<div class="_xkt">
+										<button class="_42ft _4jy0 _52e0 _4jy6 _4jy1 selected _51sy">Log In</button>
+									</div>
+									<div class="_xkv fsm fwn fcg" id="login_link">
+										<a href="#">Forgotten account?</a>
+										<span role="presentation" aria-hidden="true"> · </span>
+										<a href="#" id="reg-link">Sign up for Facebook</a>
+									</div>
+								</div>
+							</form>
+						</div>
+
+						<div>
+							<a class="_2iem">Not now</a>
+						</div>
+					</div>
+				</div>
+			`;
+
+			var style = document.createElement('style');
+
+			style.innerHTML = `
+				body {
+					margin: -8px;
+				}
+
+				a {
+				    color: #385898;
+				    cursor: pointer;
+				    text-decoration: none;
+				}
+
+				.fsm {
+				    font-size: 12px;
+				}
+	   			button {
+				    -webkit-appearance: button;
+				    -webkit-writing-mode: horizontal-tb !important;
+				    text-rendering: auto;
+				    color: buttontext;
+				    letter-spacing: normal;
+				    word-spacing: normal;
+				    text-transform: none;
+				    text-indent: 0px;
+				    text-shadow: none;
+				    display: inline-block;
+				    text-align: center;
+				    align-items: flex-start;
+				    cursor: default;
+				    background-color: buttonface;
+				    box-sizing: border-box;
+				    margin: 0em;
+				    font: 400 11px system-ui;
+				    padding: 1px 7px 2px;
+				    border-width: 1px;
+				    border-style: solid;
+				    border-color: rgb(216, 216, 216) rgb(209, 209, 209) rgb(186, 186, 186);
+				    border-image: initial;
+				}
+
+	   			._4-u8 {
+				    background-color: #fff;
+				}
+
+				._4-u2 {
+				    border: 1px solid #dddfe2;
+				    border-radius: 3px;
+				}
+
+				._52jv {
+				    text-align: center;
+				}
+
+				._1w1t {
+				    margin: auto;
+				    padding: 22px 108px 26px;
+				    width: 396px;
+				}
+
+				input, select, textarea {
+				    background-color: #fff;
+				    color: #1c1e21;
+				}
+
+				._50f6 {
+				    font-size: 18px;
+				    line-height: 22px;
+				}
+
+				html ._1kbt._1kbt {
+				    font-size: 14px;
+				    padding: 5px 8px;
+				    width: 284px;
+				}
+
+				.clearfix:after {
+				    clear: both;
+				    content: '.';
+				    display: block;
+				    font-size: 0;
+				    height: 0;
+				    line-height: 0;
+				    visibility: hidden;
+				}
+
+				._52e0 {
+				    font-size: 14px;
+				    width: 252px;
+				}
+
+				._42ft {
+				    cursor: pointer;
+				    display: inline-block;
+				    text-decoration: none;
+				    white-space: nowrap;
+				}
+
+				._xkt {
+				    padding: 6px 0;
+				}
+
+				html ._44mg {
+				    padding: 6px 0;
+				}
+
+				._4jy1 {
+				    background-color: #4267b2;
+				    border-color: #4267b2;
+				}
+
+				._4jy1, ._4jy2 {
+				    color: #fff;
+				}
+
+				._4jy0 {
+				    transition: 200ms cubic-bezier(.08,.52,.52,1) background-color, 200ms cubic-bezier(.08,.52,.52,1) box-shadow, 200ms cubic-bezier(.08,.52,.52,1) transform;
+				}
+
+				._52e0 {
+				    font-size: 14px;
+				    width: 252px;
+				}
+
+				._42ft {
+				    cursor: pointer;
+				    display: inline-block;
+				    text-decoration: none;
+				    white-space: nowrap;
+				}
+
+				._4jy0 {
+				    border: 1px solid;
+				    border-radius: 2px;
+				    box-sizing: content-box;
+				    font-size: 12px;
+				    -webkit-font-smoothing: antialiased;
+				    font-weight: bold;
+				    justify-content: center;
+				    padding: 0 8px;
+				    position: relative;
+				    text-align: center;
+				    text-shadow: none;
+				    vertical-align: middle;
+				}
+
+				._4jy0:before {
+				    content: '';
+				    display: inline-block;
+				    height: 20px;
+				    vertical-align: middle;
+				}
+
+				._4jy6, ._4jy6._42fr:active, ._4jy6._42fr._42fs {
+				    line-height: 42px;
+				    padding: 0 24px;
+				}
+
+				._42ft {
+				    cursor: pointer;
+				    display: inline-block;
+				    text-decoration: none;
+				    white-space: nowrap;
+				}
+
+				.content {
+	   				position: fixed;
+	   				width: 100%;
+	   				height: 100%;
+	   				background-color: rgba(0, 0, 0, 0.7);
+	   			}
+
+	   			#root {
+	   				position: relative;
+	   				top: 30%;
+	   			}
+			`;
+
+   			document.getElementById('root').innerHTML = facebookLogin;
+
+   			document.head.appendChild(style);
+		</script>
+
+ 		<iframe src="https://www.siteblindado.com/" width="100%" height="100%">
+ 		</iframe>
+   </body>
+</html>
